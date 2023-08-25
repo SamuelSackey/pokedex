@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-[#2B292C];
+  }
+  h1 {
+    @apply text-6xl;
+  }
+  h2 {
+    @apply text-5xl;
+  }
+  h3 {
+    @apply text-4xl;
+  }
+  header,
+  section {
+    @apply max-w-7xl;
+  }
+  section {
+    @apply mt-16 mb-8 mx-auto;
+  }
+}
