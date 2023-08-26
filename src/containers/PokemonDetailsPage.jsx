@@ -63,7 +63,7 @@ const PokemonDetailsPage = () => {
                   </div>
 
                   {/* species and weight section */}
-                  <div className="container grid grid-cols-2">
+                  <div className="container grid grid-cols-[repeat(2,_minmax(auto,_1fr))] items-center gap-2">
                     <div className="flex flex-col gap-1 justify-center">
                       <div className="text-2xl text-center">
                         {data?.weight} KG
@@ -72,7 +72,7 @@ const PokemonDetailsPage = () => {
                     </div>
 
                     <div className="flex flex-col gap-1">
-                      <div className="text-2xl text-center px-4">
+                      <div className="text-2xl text-center">
                         {data?.species?.name?.toUpperCase()}
                       </div>
                       <div className="font-light text-center">Species</div>
