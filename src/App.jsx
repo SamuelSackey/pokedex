@@ -5,7 +5,7 @@ import NotFoundPage from "./containers/NotFoundPage";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/pokedex">
       <Routes>
         <Route path="/" element={<PokemonListPage />} />
         <Route path="/pokemon/:name" element={<PokemonDetailsPage />} />
