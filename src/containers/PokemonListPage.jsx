@@ -21,7 +21,7 @@ const PokemonListPage = () => {
         <ErrorNotice />
       ) : (
         <>
-          <header className="flex h-16 items-center justify-between px-3 fixed top-0 left-1/2 transform -translate-x-1/2 w-full">
+          <header className="flex h-16 items-center justify-center sm:justify-between px-3 fixed top-0 left-1/2 transform -translate-x-1/2 w-full">
             <h3 className="text-white pr-2">Pokédex</h3>
 
             <div>
@@ -29,7 +29,7 @@ const PokemonListPage = () => {
                 type="search"
                 name="search"
                 placeholder="Search Pokémon"
-                className="sm:w-[30vw] xl:w-96 py-2.5 px-5 rounded-lg text-sm bg-white/5 border-2 border-white/10 text-white focus:outline-none"
+                className="hidden sm:block w-[30vw] xl:w-96 py-2.5 px-5 rounded-lg text-sm bg-white/5 border-2 border-white/10 text-white focus:outline-none"
                 value={searchKey}
                 onChange={onSearchChange}
               />
@@ -39,9 +39,21 @@ const PokemonListPage = () => {
           <section className="min-h-screen flex flex-col items-center">
             {searchKey.length > 2 ? (
               <>
-                <div className="text-white text-xl my-6">{`Search results for "${searchKey}"`}</div>
+                <div>
+                  <input
+                    type="search"
+                    name="search"
+                    placeholder="Search Pokémon"
+                    className="sm:hidden w-[70vw] py-2.5 px-5 rounded-lg text-sm bg-white/5 border-2 border-white/10 text-white focus:outline-none"
+                    value={searchKey}
+                    onChange={onSearchChange}
+                  />
+                </div>
+
+                <div className="text-white text-xl my-6 text-center">{`Search results for "${searchKey}"`}</div>
 
                 {/* Pokemon Grid */}
+
                 <PokemonListGrid data={results} />
               </>
             ) : (
@@ -52,6 +64,17 @@ const PokemonListPage = () => {
                   </div>
                 ) : (
                   <>
+                    <div>
+                      <input
+                        type="search"
+                        name="search"
+                        placeholder="Search Pokémon"
+                        className="sm:hidden w-[70vw] py-2.5 px-5 rounded-lg text-sm bg-white/5 border-2 border-white/10 text-white focus:outline-none"
+                        value={searchKey}
+                        onChange={onSearchChange}
+                      />
+                    </div>
+
                     {/* Pokemon Grid */}
                     <PokemonListGrid data={data} />
 
