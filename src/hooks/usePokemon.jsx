@@ -29,3 +29,24 @@ export const usePokemonDetails = (name) => {
     },
   });
 };
+
+export const useSearchPokemon = (key) => {
+  const { data } = useQuery({
+    queryKey: ["pokemon"],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`
+      );
+
+      return data.results;
+    },
+  });
+
+  if (key.length > 2) {
+    return data?.filter((pokemon) =>
+      pokemon?.name?.includes(key.toLowerCase())
+    );
+  } else {
+    return [];
+  }
+};
