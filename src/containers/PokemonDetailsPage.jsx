@@ -4,11 +4,12 @@ import { usePokemonDetails } from "../hooks/usePokemon";
 import { capitalize, processStats, typeColors } from "../utilities";
 import StatBar from "../components/StatBar";
 import ErrorNotice from "../components/ErrorNotice";
+import Spinner from "../components/Spinner";
 
 const PokemonDetailsPage = () => {
   const { name } = useParams();
 
-  const { data, isError, fetchStatus } = usePokemonDetails(name);
+  const { data, isLoading, isError, fetchStatus } = usePokemonDetails(name);
 
   return (
     <>
@@ -17,7 +18,11 @@ const PokemonDetailsPage = () => {
       ) : (
         <section className="px-0">
           <div className="flex flex-col items-center">
-            {data ? (
+            {isLoading ? (
+              <div className="pt-[15vh]">
+                <Spinner />
+              </div>
+            ) : (
               <div className="w-[60%] min-w-[320px] rounded-xl shadow-2xl bg-white/10 text-white overflow-hidden">
                 {/* image section */}
                 <div
@@ -114,8 +119,6 @@ const PokemonDetailsPage = () => {
                   </div>
                 </div>
               </div>
-            ) : (
-              <div />
             )}
           </div>
         </section>
