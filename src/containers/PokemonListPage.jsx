@@ -29,7 +29,7 @@ const PokemonListPage = () => {
                 type="search"
                 name="search"
                 placeholder="Search Pokémon"
-                className="sm:w-[30vw] xl:w-96 py-2.5 px-5 rounded-lg text-sm focus:outline-none"
+                className="sm:w-[30vw] xl:w-96 py-2.5 px-5 rounded-lg text-sm bg-white/5 border-2 border-white/10 text-white focus:outline-none"
                 value={searchKey}
                 onChange={onSearchChange}
               />
